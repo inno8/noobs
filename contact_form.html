@@ -1,0 +1,47 @@
+<html>
+<head><title>Contact Us</title></head>
+<body style="font-family: Arial; margin: 0; padding: 20px;">
+<div style="max-width: 600px; margin: 0 auto;">
+  <h1 style="color: blue; text-align: center;">Contact Us</h1>
+  
+  <div id="form-container">
+    <div style="margin-bottom: 15px;">
+      <div style="font-weight: bold; margin-bottom: 5px;">Name</div>
+      <input type="text" id="name" style="width: 100%; padding: 8px; border: 1px solid #ccc;">
+    </div>
+    <div style="margin-bottom: 15px;">
+      <div style="font-weight: bold; margin-bottom: 5px;">Email</div>
+      <input type="text" id="email" style="width: 100%; padding: 8px; border: 1px solid #ccc;">
+    </div>
+    <div style="margin-bottom: 15px;">
+      <div style="font-weight: bold; margin-bottom: 5px;">Message</div>
+      <textarea id="message" style="width: 100%; padding: 8px; border: 1px solid #ccc; height: 100px;"></textarea>
+    </div>
+    <div onclick="submitForm()" style="background: blue; color: white; padding: 10px 20px; text-align: center; cursor: pointer;">
+      Send Message
+    </div>
+  </div>
+  
+  <div id="result" style="margin-top: 20px;"></div>
+</div>
+
+<script>
+function submitForm() {
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var message = document.getElementById("message").value;
+  
+  if (name == "" || email == "" || message == "") {
+    document.getElementById("result").innerHTML = "<p style='color:red'>Please fill all fields</p>";
+    return;
+  }
+  
+  document.getElementById("result").innerHTML = "<p style='color:green'>Thank you " + name + "! We received your message.</p>";
+  
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("message").value = "";
+}
+</script>
+</body>
+</html>
